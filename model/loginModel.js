@@ -1,0 +1,20 @@
+const mongoose = require("mongoose")
+
+let loginSchema = mongoose.Schema(
+    {   
+        
+        email:{
+            type: String,
+            required: true,
+            unique: true
+        },
+        password:{
+            type: String,
+            required: true
+        }
+    }
+)
+
+let loginModel = mongoose.model("login",loginSchema)
+
+module.exports = loginModel
