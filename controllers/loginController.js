@@ -16,8 +16,9 @@ const registerModel = require("../model/registerModel")
     })
    }
 
-   let loginRead =(req,res)=>{
-       res.send("data is resesr")
+   let loginRead = async (req,res)=>{
+       let data  = await loginModel.find()
+       res.send({status:1,message:"data reead", data:data})
    }
    
    let registerInserted = (req,res)=>{
@@ -35,4 +36,9 @@ const registerModel = require("../model/registerModel")
     })
    }
 
-   module.exports={loginInserted,registerInserted, loginRead}
+
+   let dataList = async (req,res)=>{
+    let data = await loginModel.find()
+    res.send({status:1,message:"data readed",dataLists: data})
+   }
+   module.exports={loginInserted,registerInserted, loginRead,dataList}

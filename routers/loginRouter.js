@@ -1,13 +1,14 @@
 const express = require("express")
-const { loginInserted, loginRead, registerInserted } = require("../controllers/loginController")
-const { chekLogin } = require("../middleware/checkLogin")
-// const { chekLogin } = require("../middleware/chekLogin")
+const { loginInserted, loginRead, registerInserted, dataList } = require("../controllers/loginController")
+
+
 
 let loginRouter = express.Router()
 
 loginRouter.post("/login", loginInserted)
 loginRouter.post("/register", registerInserted)
-loginRouter.get("/read",chekLogin, loginRead)
+loginRouter.get("/read", loginRead)
+loginRouter.get("/data",dataList)
 
 
 module.exports = loginRouter
